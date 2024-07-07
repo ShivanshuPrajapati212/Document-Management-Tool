@@ -1,0 +1,77 @@
+{% extends "base_generic.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+{% load text_extract_filters %}
+{% block content %}
+<div class="container mt-6 mx-auto flex flex-col items-center justify-center text-center">
+    <h1 class="flex items-center text-5xl font-extrabold">
+        {{ post.title }}
+        <span class="bg-blue-100 text-blue-800 text-2xl font-semibold ml-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
+            {{ post.author }}
+        </span>
+    </h1>
+</div>
+
+
+{% if is_image %}
+<div class="container mt-6 mx-auto flex flex-col items-center justify-center text-center">
+    <img src="{{ post.file.url }}" alt="{{ post.title }}" style="max-height: 650px;">
+</div>
+{% else %}
+<div class="container mt-6 mx-auto flex flex-col items-center justify-center">
+<div class="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><pre class="text-white">{{ post.file.path|extract_text }}</pre></p>
+</div>
+</div>
+
+
+
+
+{% endif %}
+
+<div class="container mx-auto flex items-center pt-5 justify-center text-center">
+<a
+  class="group relative inline-flex items-center overflow-hidden rounded bg-indigo-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500 "
+  href="{{ post.file.url }}" download>
+  <span class="absolute -start-full transition-all group-hover:start-4">
+    <svg
+      class="size-5 rtl:rotate-180"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+    </svg>
+  </span>
+
+  <span class="text-sm font-medium transition-all group-hover:ms-4"> Download </span>
+</a>
+{% if user == post.author %}
+<a
+  class="group relative inline-flex items-center overflow-hidden rounded bg-red-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
+  href="{% url 'delete_post' post.id %}" download>
+  <span class="absolute -start-full transition-all group-hover:start-4">
+    <svg
+      class="size-5 rtl:rotate-180"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+    </svg>
+  </span>
+
+  <span class="text-sm font-medium transition-all group-hover:ms-4"> Delete </span>
+</a>
+{% endif %}
+</div>
+{% endblock content %}
+
