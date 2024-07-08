@@ -3,9 +3,13 @@ from django.contrib.auth.decorators import login_required
 from .models import Post
 from .forms import PostForm
 import os
+from mega import Mega
+from django.conf import settings
+
 # Create your views here.
 def index(request):
     return render(request, 'base_generic.html')
+
 
 @login_required
 def create_post(request):
@@ -14,8 +18,24 @@ def create_post(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
+
+            # Initialize Mega
+            mega = Mega()
+            m = mega.login(settings.MEGA_EMAIL, settings.MEGA_PASSWORD)
+
+            # Upload file to Mega
+            file = request.FILES['file']
+            file_name = file.name
+            mega_file = m.upload(file.temporary_file_path(), file_name)
+
+            # Get the public link
+            public_link = m.get_upload_link(mega_file)
+            
+            # Save the Mega link
+            post.file = public_link
             post.save()
-            return redirect('post_detail', post_id=post.id)  # Redirect to the post detail view
+
+            return redirect('post_detail', post_id=post.id)
     else:
         form = PostForm()
     return render(request, 'create_post.html', {'form': form})
@@ -24,6 +44,15 @@ def create_post(request):
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id, author=request.user)
     if request.method == 'POST':
+        # Initialize Mega
+        mega = Mega()
+        m = mega.login(settings.MEGA_EMAIL, settings.MEGA_PASSWORD)
+
+        # Delete file from Mega
+        file_path = post.file.split('!')[-1]  # Extract file path from Mega link
+        m.destroy(file_path)
+
+        # Delete post from database
         post.delete()
         return redirect('home')
     return render(request, 'delete_post.html', {'post': post})

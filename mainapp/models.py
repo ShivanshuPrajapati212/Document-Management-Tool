@@ -1,9 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
-# Create your models here.
+
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    file = models.FileField(upload_to='uploads/')
+    file = models.URLField(max_length=255)  # This will store the Mega link
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True) 
 
