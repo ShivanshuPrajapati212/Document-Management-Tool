@@ -1,0 +1,377 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    {% block links %}
+    {% endblock links %}
+    <title>
+      {% block title %}Shivanshu P. - Python Developer {% endblock title %}
+    </title>
+  </head>
+  <body>
+    <header>
+      {% block navbar %}
+      <nav>
+        <div class="left"><span>Shivanshu P.</span></div>
+        <div class="right">
+          <ul>
+            <li><a href="/" id="nav-home">Home</a></li>
+            <li><a href="{% url 'myblog:blog-index' %}">Blog</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      {% endblock navbar %}
+    </header>
+
+    <main>
+      {% block main %}
+      <div class="hero">
+        <div class="left">
+          Hi, My name is <span>Shivanshu Prajapati</span>
+          <div>and I am a passionate</div>
+          <span id="element"></span>
+          <form action="/home">
+            <button class="hero-login" type="button">Get Started &rarr;</button>
+          </form>
+        </div>
+        <div class="right">
+          <img src="{% static 'hero.png' %}" alt="hero" />
+        </div>
+      </div>
+      <div class="wave">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="rgb(67, 14, 116)"
+            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
+      <div class="progress">
+        <h2 class="progress-title">Things Currently I am working on</h2>
+        <div class="timeline">
+          <ul>
+            <li style="--accent-color: #f5c000">
+              <div class="date">June</div>
+              <div class="title">BalaneBoard</div>
+              <div class="descr">
+                BalaneBoard is a SaaS that helps to get productivity at home.
+                This Project is in Progress and I will complete it soon.
+              </div>
+            </li>
+            <li style="--accent-color: #f5c000">
+              <div class="date">January</div>
+              <div class="title">AI/ML</div>
+              <div class="descr">
+                My goal is to become a ML engineer and I have started to learn
+                more about ML and AI.
+              </div>
+            </li>
+            <li style="--accent-color: #f5c000">
+              <div class="date">May</div>
+              <div class="title">Django</div>
+              <div class="descr">
+                I was interested in Backend so I learn little bit about django
+                and made this Portfolio.
+              </div>
+            </li>
+            <li style="--accent-color: #f5c000">
+              <div class="date">June</div>
+              <div class="title">Data Stuctures and Algorithms</div>
+              <div class="descr">
+                I want to learn a about data Stuctures and Algorithms.
+              </div>
+            </li>
+            <li style="--accent-color: #f5c000">
+              <div class="date">August 2023</div>
+              <div class="title">Python</div>
+              <div class="descr">
+                I Learned Python and done some practice of Scripting and
+                Programming.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="projects">
+        <h2 class="title">Projects</h2>
+        <div class="ag-format-container">
+          <div class="ag-courses_box">
+            <div class="ag-courses_item">
+              <a
+                href="https://weather-quoter.vercel.app/"
+                target="_blank"
+                class="ag-courses-item_link"
+              >
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">Weather Quoter</div>
+
+                <div class="ag-courses-item_date-box">
+                  Start:
+                  <span class="ag-courses-item_date"> May 2024 </span>
+                </div>
+              </a>
+            </div>
+
+            <div class="ag-courses_item">
+              <a
+                href="https://textutils-shivanshu.vercel.app/"
+                target="_blank"
+                class="ag-courses-item_link"
+              >
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">Textutils</div>
+
+                <div class="ag-courses-item_date-box">
+                  Start:
+                  <span class="ag-courses-item_date"> April 2024 </span>
+                </div>
+              </a>
+            </div>
+
+            <div class="ag-courses_item">
+              <a href="#" class="ag-courses-item_link">
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">Portfolio</div>
+
+                <div class="ag-courses-item_date-box">
+                  Start:
+                  <span class="ag-courses-item_date"> June 2024 </span>
+                </div>
+              </a>
+            </div>
+
+            <div class="ag-courses_item">
+              <a href="#" class="ag-courses-item_link">
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">BalanceBoard</div>
+
+                <div class="ag-courses-item_date-box">
+                  Start:
+                  <span class="ag-courses-item_date"> June 2024 </span>
+                </div>
+              </a>
+            </div>
+
+            <div class="ag-courses_item">
+              <a href="#" class="ag-courses-item_link">
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">Discord Bot - AI</div>
+
+                <div class="ag-courses-item_date-box">
+                  Start:
+                  <span class="ag-courses-item_date"> February 2024 </span>
+                </div>
+              </a>
+            </div>
+
+            <div class="ag-courses_item">
+              <a href="#" class="ag-courses-item_link">
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">Mini Projects - 50</div>
+                <div class="ag-courses-item_date-box">
+                  Start:
+                  <span class="ag-courses-item_date"> July 2023 </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="skills-section">
+        <div class="skills" id="skills">
+          <h2 class="title">My Skills</h2>
+          <div class="skills-container">
+            <div class="skill-container">
+              <p>Python</p>
+              <div class="percentage html-percentage">90%</div>
+              <div class="bar">
+                <span class="html"></span>
+              </div>
+            </div>
+
+            <div class="skill-container">
+              <p>Django</p>
+              <div class="percentage css-percentage">90%</div>
+              <div class="bar">
+                <span class="css"></span>
+              </div>
+            </div>
+
+            <div class="skill-container">
+              <p>HTML</p>
+              <div class="percentage javascript-percentage">80%</div>
+              <div class="bar">
+                <span class="javascript"></span>
+              </div>
+            </div>
+
+            <div class="skill-container">
+              <p>CSS</p>
+              <div class="percentage react-percentage">70%</div>
+              <div class="bar">
+                <span class="react"></span>
+              </div>
+            </div>
+
+            <div class="skill-container">
+              <p>Java</p>
+              <div class="percentage node-percentage">50%</div>
+              <div class="bar">
+                <span class="node"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="wave-top">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
+      {% endblock main %}
+    </main>
+    {% block footer %}
+    <footer class="footer">
+      <div class="footer__addr">
+        <h1 class="footer__logo">Shivanshu P.</h1>
+
+        <h2>Contact</h2>
+
+        <address>
+          1/295 Vinamra Khand, Gomti Nagar, Lucknow<br />
+
+          <a class="footer__btn" href="mailto:shivanshuprajapati@gmail.com"
+            >Email Us</a
+          >
+        </address>
+      </div>
+
+      <ul class="footer__nav">
+        <li class="nav__item">
+          <h2 class="nav__title">Media</h2>
+
+          <ul class="nav__ul">
+            <li>
+              <a href="#">Online</a>
+            </li>
+
+            <li>
+              <a href="#">Print</a>
+            </li>
+
+            <li>
+              <a href="#">Alternative Ads</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav__item nav__item--extra">
+          <h2 class="nav__title">Technology</h2>
+
+          <ul class="nav__ul nav__ul--extra">
+            <li>
+              <a href="#">Hardware Design</a>
+            </li>
+
+            <li>
+              <a href="#">Software Design</a>
+            </li>
+
+            <li>
+              <a href="#">Digital Signage</a>
+            </li>
+
+            <li>
+              <a href="#">Automation</a>
+            </li>
+
+            <li>
+              <a href="#">Artificial Intelligence</a>
+            </li>
+
+            <li>
+              <a href="#">IoT</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav__item">
+          <h2 class="nav__title">Legal</h2>
+
+          <ul class="nav__ul">
+            <li>
+              <a href="#">Privacy Policy</a>
+            </li>
+
+            <li>
+              <a href="#">Terms of Use</a>
+            </li>
+
+            <li>
+              <a href="#">Sitemap</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="legal">
+        <p>&copy; 2024 June. All rights reserved.</p>
+
+        <div class="legal__links">
+          <span
+            >Made with <span class="heart">♥</span> Hard work by Shivanshu
+            Prajapati</span
+          >
+        </div>
+      </div>
+    </footer>
+    {% endblock footer %}
+    {% block javascript %}
+    <script src="{% static 'skills.js' %}"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+      var typed = new Typed("#element", {
+        strings: [
+          "Web Devloper",
+          "Python Programer",
+          "Django Developer",
+          "Python Developer",
+        ],
+        typeSpeed: 50,
+      });
+    </script>
+    {% endblock javascript %}
+  </body>
+</html>

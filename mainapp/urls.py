@@ -9,6 +9,7 @@ urlpatterns = [
     path('post/new/', views.create_post, name='create_post'),
     path('post/<int:post_id>/delete/', views.delete_post, name='delete_post'),
     path('post/<int:post_id>/', views.post_detail, name='post_detail'),  # Add this for post detail view
+    path('features/', views.features, name='features'),  # Add this for post detail view
 ]
 
 if settings.DEBUG:
