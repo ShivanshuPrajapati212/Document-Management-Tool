@@ -142,5 +142,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-MEGA_EMAIL = 'shivanshuprajapati212@example.com'
+MEGA_EMAIL = 'shivanshuprajapati212@gmail.com'
 MEGA_PASSWORD = 'Shivanshu@212'
