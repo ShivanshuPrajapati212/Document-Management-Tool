@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/
 """
 
 import os
+from collections.abc import Sequence
 
 from django.core.wsgi import get_wsgi_application
 
